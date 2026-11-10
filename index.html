@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mubashir Bashir - WordPress Developer CV</title>
+  <style>
+    :root {
+      --primary: #1f4e79;
+      --accent: #2a9d8f;
+      --accent-soft: #e8f4f2;
+      --highlight: #e76f51;
+      --text: #222222;
+      --muted: #555555;
+      --bg: #f4f6f8;
+      --border: #dfe4ea;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    .cv {
+      max-width: 860px;
+      margin: 32px auto;
+      background: #ffffff;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: #ffffff;
+      padding: 36px 40px 30px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.8);
+      background: #cfe3f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 14px;
+      text-align: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .header-info {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .header-info h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+
+    .title {
+      font-size: 19px;
+      font-weight: 400;
+      margin-top: 4px;
+      color: #d8f3ef;
+    }
+
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 16px;
+  list-style: none;
+  font-size: 14px;
+}
+
+.contact li {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+
+.contact svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.9;
+}
+
+.contact a {
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255,255,255,0.6);
+  overflow-wrap: anywhere;
+}
+
+.contact a:hover {
+  border-bottom-style: solid;
+}
+/* 
+
+    .contact {
+      margin-top: 16px;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      font-size: 14px;
+    }
+
+    .contact a {
+      color: #ffffff;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(255, 255, 255, 0.6);
+    }
+
+    .contact a:hover {
+      border-bottom-style: solid;
+    } */
+
+    .upload-btn,
+    .print-btn {
+      margin-top: 18px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-family: inherit;
+      border: 1px solid #ffffff;
+      background: transparent;
+      color: #ffffff;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-right: 8px;
+    }
+
+    .upload-btn:hover,
+    .print-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    /* ---------- Body ---------- */
+    main {
+      padding: 30px 40px 10px;
+    }
+
+    section {
+      margin-bottom: 28px;
+    }
+
+    section h2 {
+      font-size: 16px;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .summary p {
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .entry {
+      margin-bottom: 20px;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px 12px;
+    }
+
+    .entry h3 {
+      font-size: 17px;
+      color: var(--text);
+    }
+
+    .company {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 15px;
+    }
+
+    .date {
+      color: var(--muted);
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    ul.bullets {
+      margin-top: 6px;
+      padding-left: 20px;
+    }
+
+    ul.bullets li {
+      margin-bottom: 4px;
+    }
+
+    /* ---------- Skills ---------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .skill-card {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+      padding: 12px 14px;
+    }
+
+    .skill-card:nth-child(2) {
+      border-left-color: var(--primary);
+    }
+
+    .skill-card:nth-child(3) {
+      border-left-color: var(--highlight);
+    }
+
+    .skill-card:nth-child(4) {
+      border-left-color: #8a5cf6;
+    }
+
+    .skill-card h3 {
+      font-size: 15px;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .skill-card p {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .skill-bars {
+      margin-top: 18px;
+    }
+
+    .skill-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .bar {
+      height: 8px;
+      background: #e5ebf0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 4px;
+    }
+
+
+    .skill-focus {
+      margin-top: 18px;
+      padding: 11px 14px;
+      border-left: 4px solid var(--accent);
+      background: var(--accent-soft);
+      border-radius: 6px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .education-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 4px 0 2px;
+    }
+
+    .education-row h3 {
+      font-size: 17px;
+      color: var(--text);
+    }
+
+    .cgpa {
+      margin-top: 5px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .education-section {
+      margin-bottom: 24px;
+    }
+
+    /* ---------- Projects ---------- */
+    .project {
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--highlight);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+    }
+
+    .project h3 {
+      font-size: 17px;
+      color: var(--primary);
+    }
+
+    .project p {
+      font-size: 14px;
+    }
+
+    .project a {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .tags {
+      margin: 8px 0 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      background: var(--accent-soft);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 12px;
+    }
+
+    /* ---------- Two-column blocks ---------- */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .two-col h2 {
+      margin-bottom: 14px;
+    }
+
+    .list-plain {
+      list-style: none;
+    }
+
+    .list-plain li {
+      margin-bottom: 8px;
+      font-size: 14px;
+      padding-left: 12px;
+      border-left: 3px solid var(--highlight);
+    }
+
+    .list-plain li:nth-child(even) {
+      border-left-color: var(--accent);
+    }
+
+    footer {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: #ffffff;
+      text-align: center;
+      padding: 14px;
+      font-size: 13px;
+    }
+
+    /* ---------- Print: plain, ATS-friendly PDF ---------- */
+    @media print {
+      body {
+        background: #ffffff;
+        font-size: 11pt;
+      }
+
+      .cv {
+        box-shadow: none;
+        margin: 0;
+        border-radius: 0;
+        max-width: 100%;
+      }
+
+      .upload-btn,
+      .print-btn {
+        display: none;
+      }
+
+      header,
+      footer,
+      .tag,
+      .skill-card,
+      .bar span {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      header {
+        padding: 24px 30px;
+      }
+
+      main {
+        padding: 20px 30px;
+      }
+
+      section {
+        page-break-inside: avoid;
+      }
+
+      .project,
+      .entry {
+        page-break-inside: avoid;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      main,
+      header {
+        padding: 24px;
+      }
+
+      header h1 {
+        font-size: 28px;
+      }
+
+      .photo {
+        width: 120px;
+        height: 120px;
+      }
+      .header-info { min-width: 0; }
+      .contact { gap: 8px 14px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cv">
+
+    <header>
+      <div class="photo" id="photoBox">
+        <img id="photoPreview" src="https://mubashir-resume.netlify.app/images/mubashir-bashir.jpeg" alt="Mubashir Bashir profile photo" style="display:block;">
+        <span id="photoText" style="display:none;">Add Photo<br>(150 x 150 px)</span>
+      </div>
+
+      <div class="header-info">
+        <h1>Mubashir Bashir</h1>
+        <p class="title">WordPress Developer</p>
+
+
+        <ul class="contact">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
+              <circle cx="12" cy="10" r="2.5" />
+            </svg>
+            <span>Karachi, Pakistan</span>
+          </li>
+
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m3 7 9 6 9-6" />
+            </svg>
+            <a href="mailto:mb.mubashirbashir@gmail.com">mb.mubashirbashir@gmail.com</a>
+          </li>
+
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3.1 5.2 2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7l.4 2.8a2 2 0 0 1-.6 1.7L8.5 10.6a16 16 0 0 0 4.9 4.9l1.4-1.4a2 2 0 0 1 1.7-.6l2.8.4a2 2 0 0 1 1.7 2Z" />
+            </svg>
+            <a href="tel:+923434226090">0343 4226090</a>
+          </li>
+
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            <a href="https://pk.linkedin.com/in/mubashirbashir-webdev">linkedin.com/in/mubashirbashir-webdev</a>
+          </li>
+
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 6v-3.9a3.4 3.4 0 0 0-.9-2.7c3-.3 6.2-1.5 6.2-6.7a5.2 5.2 0 0 0-1.4-3.6 4.8 4.8 0 0 0-.1-3.6S17.6 1.2 15 3a13.2 13.2 0 0 0-7 0C5.4 1.2 4.2 1.5 4.2 1.5a4.8 4.8 0 0 0-.1 3.6 5.2 5.2 0 0 0-1.4 3.6c0 5.2 3.2 6.4 6.2 6.7A3.4 3.4 0 0 0 8 18v4" />
+            </svg>
+            <a href="https://github.com/mubashir-bashir">github.com/mubashir-bashir</a>
+          </li>
+
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" />
+            </svg>
+            <a href="https://mubashir-resume.netlify.app/">mubashir-resume.netlify.app</a>
+          </li>
+        </ul>
+
+
+        <button class="upload-btn" id="uploadBtn">Upload Photo</button>
+        <button class="print-btn" id="printBtn">Print / Save as PDF</button>
+        <input type="file" id="photoInput" accept="image/*">
+      </div>
+    </header>
+
+    <main>
+
+      <section class="summary">
+        <h2>Professional Summary</h2>
+        <p>
+          WordPress Developer with 3+ years of professional experience building, customizing, and maintaining
+          responsive, performance-focused websites. Experienced in custom WordPress development, PHP,
+          Advanced Custom Fields (ACF), theme and plugin customization, WooCommerce, API integrations, and
+          converting Figma and PSD designs into accurate, responsive WordPress websites. Skilled in technical
+          SEO, Core Web Vitals, website speed optimization, troubleshooting, and ongoing website maintenance.
+          Focused on writing clean, maintainable code and delivering reliable WordPress solutions.
+        </p>
+      </section>
+
+      <section>
+        <h2>Core Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>WordPress Development</h3>
+            <p>WordPress CMS, Custom Theme Development, Theme Customization, Plugin Customization, Custom Functionality,
+              WordPress Best Practices</p>
+          </div>
+          <div class="skill-card">
+            <h3>PHP and WordPress Tools</h3>
+            <p>PHP, MySQL, Advanced Custom Fields (ACF / ACF Pro), ACF Repeater, Elementor, Elementor Pro, WPBakery,
+              Divi, WooCommerce</p>
+          </div>
+          <div class="skill-card">
+            <h3>Front-End and Integrations</h3>
+            <p>HTML5, CSS3, JavaScript, Bootstrap, Tailwind CSS, REST API Integration, Third-Party Integrations, Payment
+              Gateway Integration</p>
+          </div>
+          <div class="skill-card">
+            <h3>Optimization and Deployment</h3>
+            <p>Technical SEO, On-Page SEO, Core Web Vitals, Page Speed Optimization, Responsive Design, Cross-Browser
+              Testing, Git, cPanel, Hosting, SSL, Cloudflare</p>
+          </div>
+        </div>
+        <div class="skill-focus">
+          <strong>Key Focus:</strong> Custom WordPress Development · PHP &amp; ACF · Responsive Front-End · Website Performance &amp; Technical SEO
+        </div>
+      </section>
+
+      <section>
+        <h2>Work Experience</h2>
+
+        <div class="entry">
+          <div class="entry-header">
+            <h3>WordPress Developer</h3>
+            <span class="date">Sep 2025 - Present</span>
+          </div>
+          <p class="company">Eminent4u Pvt Limited</p>
+          <ul class="bullets">
+            <li>Develop and maintain custom WordPress websites with a focus on performance, scalability, responsive
+              design, and maintainable code.</li>
+            <li>Build custom WordPress functionality using PHP, Advanced Custom Fields (ACF), and reusable content
+              components.</li>
+            <li>Convert Figma and PSD designs into pixel-accurate, responsive WordPress pages.</li>
+            <li>Improve website speed, Core Web Vitals, and technical SEO through front-end and website performance
+              optimization.</li>
+            <li>Configure and maintain website security using SSL, Cloudflare, regular updates, and proactive
+              maintenance.</li>
+            <li>Troubleshoot website issues, implement feature enhancements, and provide ongoing technical support.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <h3>Associate Web Developer</h3>
+            <span class="date">Feb 2025 - Sep 2025</span>
+          </div>
+          <p class="company">Bari Tech Solutions</p>
+          <ul class="bullets">
+            <li>Developed and customized WordPress business websites using Elementor, WPBakery, PHP, and ACF.</li>
+            <li>Created reusable, dynamic website sections and customized themes to meet project requirements.</li>
+            <li>Converted Figma and PSD designs into responsive pages with close attention to layout accuracy and
+              usability.</li>
+            <li>Integrated third-party APIs, contact forms, maps, and website functionality based on client
+              requirements.</li>
+            <li>Improved on-page SEO, website performance, and cross-browser compatibility.</li>
+            <li>Supported website migrations, content updates, testing, and production deployment.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <h3>WordPress and Web Developer</h3>
+            <span class="date">Sep 2023 - Feb 2025</span>
+          </div>
+          <p class="company">TYM Solutions</p>
+          <ul class="bullets">
+            <li>Developed and customized WordPress websites using Elementor and other page builders.</li>
+            <li>Built responsive page layouts using HTML5, CSS3, Bootstrap, and JavaScript.</li>
+            <li>Customized WordPress themes, website content, contact forms, sliders, and reusable page sections.</li>
+            <li>Translated design mockups into functional WordPress pages while maintaining visual consistency.</li>
+            <li>Tested websites, resolved layout and cross-browser issues, and performed regular maintenance.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <h3>Web Developer</h3>
+            <span class="date">May 2023 - Aug 2025</span>
+          </div>
+          <p class="company">DeCloudsWeb</p>
+          <ul class="bullets">
+            <li>Assisted with the development, updates, and maintenance of WordPress websites.</li>
+            <li>Built responsive web pages using HTML, CSS, Bootstrap, and JavaScript.</li>
+            <li>Customized website layouts using Elementor and completed content updates based on project requirements.
+            </li>
+            <li>Tested website functionality, resolved front-end issues, and checked cross-browser compatibility.</li>
+            <li>Supported debugging, website maintenance, and quality assurance during development.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+
+        <div class="project">
+          <h3>24|7 Home Rescue</h3>
+          <p>Contributed to a WordPress website for a UK home emergency and boiler cover provider. Developed dynamic
+            content functionality using ACF Pro and ACF Repeater, integrated third-party payment gateways and external
+            APIs, and implemented responsive layouts with a focus on performance and maintainability.</p>
+          <div class="tags">
+            <span class="tag">WordPress</span><span class="tag">PHP</span><span class="tag">ACF Pro</span><span
+              class="tag">API Integration</span><span class="tag">Payment Integration</span>
+          </div>
+          <a href="https://247homerescue.co.uk/">View Website</a>
+        </div>
+
+        <div class="project">
+          <h3>CarBazar.pk</h3>
+          <p>Contributed to a WordPress automotive marketplace with dynamic vehicle listings, search and filtering
+            functionality, responsive page layouts, and performance-focused front-end development.</p>
+          <div class="tags">
+            <span class="tag">WordPress</span><span class="tag">PHP</span><span class="tag">Custom
+              Functionality</span><span class="tag">Responsive Design</span>
+          </div>
+          <a href="https://www.carbazar.pk/">View Website</a>
+        </div>
+
+        <div class="project">
+          <h3>Meta Might Solutions</h3>
+          <p>Developed and customized a responsive WordPress corporate website with modern page layouts, interactive
+            service sections, structured content, and performance and SEO improvements.</p>
+          <div class="tags">
+            <span class="tag">WordPress</span><span class="tag">Elementor</span><span class="tag">Responsive
+              Design</span><span class="tag">SEO</span>
+          </div>
+          <a href="https://metamightsolutions.com/">View Website</a>
+        </div>
+
+        <div class="project">
+          <h3>Logo Poppin</h3>
+          <p>Collaborated on a WordPress agency website, implementing responsive front-end layouts, interactive
+            sections, and reusable components while supporting cross-browser compatibility and performance.</p>
+          <div class="tags">
+            <span class="tag">WordPress</span><span class="tag">Responsive UI</span><span class="tag">Reusable
+              Components</span><span class="tag">Performance</span>
+          </div>
+          <a href="https://logopoppin.com/">View Website</a>
+        </div>
+      </section>
+
+      <section class="education-section">
+        <h2>Education</h2>
+        <div class="education-row">
+          <div>
+            <h3>Bachelor's Degree in Software Engineering</h3>
+            <div class="entry-header">
+              <p class="company">Hazara University</p>
+              <span class="date">2018 - 2022</span>
+            </div>
+            <p class="cgpa">CGPA: <strong>3.2 / 4.0</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="two-col">
+          <div>
+            <h2>Languages</h2>
+            <ul class="list-plain">
+              <li>English</li>
+              <li>Urdu</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2>Interests</h2>
+            <ul class="list-plain">
+              <li>WordPress Development and Custom Website Solutions</li>
+              <li>Website Performance, Core Web Vitals and Technical SEO</li>
+              <li>Learning Modern Web Technologies and Development Tools</li>
+              <li>Exploring UI/UX Design and Front-End Interactions</li>
+              <li>Problem-Solving and Improving Development Workflows</li>
+              <li>Building Personal Projects and Practical Coding Experiments</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      Mubashir Bashir | WordPress Developer | <span id="year"></span>
+    </footer>
+
+  </div>
+
+  <script>
+    // Photo upload with live preview
+    const uploadBtn = document.getElementById('uploadBtn');
+    const photoInput = document.getElementById('photoInput');
+    const photoPreview = document.getElementById('photoPreview');
+    const photoText = document.getElementById('photoText');
+
+    uploadBtn.addEventListener('click', () => photoInput.click());
+
+    photoInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (!file || !file.type.startsWith('image/')) return;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        photoPreview.src = e.target.result;
+        photoPreview.alt = 'Profile photo of Mubashir Bashir';
+        photoPreview.style.display = 'block';
+        photoText.style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Print / save as PDF
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+    // Auto-update footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>
